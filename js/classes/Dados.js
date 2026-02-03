@@ -17,3 +17,6 @@ export const HORARIOS = Object.freeze([
   }
 ]);
 
+export const DIAS = Object.freeze([
+  
+]);
