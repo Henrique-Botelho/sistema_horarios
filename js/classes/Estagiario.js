@@ -1,4 +1,4 @@
-import { HORARIOS } from "./Horarios.js";
+import { HORARIOS } from "./Dados.js";
 
 export default class Estagiario {
   /**
@@ -30,39 +30,39 @@ export default class Estagiario {
     this.#horario = horario;
   }
 
+  /**
+   * 
+   * @returns {number} Número total de tempo do estagiário na escola em minutos.
+   */
   calcula_total_horas() {
     let [ manha_inicio, manha_fim, tarde_inicio, tarde_fim ] = this.#horario.map(String);
-    let horario_inicial = manha_inicio;
-    let horario_final = HORARIOS[0][0];
-    let total_tempo = 0;
-    let contador = 0;
+    let tempo_total = 0;
+    let horario_inicial;
+    let horario_final;
 
     // Parte da manhã
-    while (contador < HORARIOS.length) {
-      if (this.#calcula_intervalo(horario_final, manha_fim) <= 0) {
-        total_tempo += this.#calcula_intervalo(horario_inicial, horario_final);
+    for (let x = 0; x < HORARIOS.length; x++) {
+      if (x == 0) {
+        horario_inicial = manha_inicio;
+      } else {
+        horario_inicial = HORARIOS[x].INICIO
+      }
+      horario_final = HORARIOS[x].FIM;
+
+      if(this.#calcula_intervalo(horario_final, manha_fim) <= 0) {
+        tempo_total += this.#calcula_intervalo(horario_inicial, manha_fim);
         break;
       }
 
-      total_tempo += this.#calcula_intervalo(horario_inicial, horario_final);
-
-      horario_inicial = HORARIOS[contador][0]
-
-      if (contador < HORARIOS.length - 1) {
-        horario_final = HORARIOS[contador + 1][1];
-      } else {
-        horario_final = manha_fim;
-      }
-
-
-      contador += 1;
+      tempo_total += this.#calcula_intervalo(horario_inicial, horario_final);
     }
 
     // Parte da tarde
-    total_tempo += this.#calcula_intervalo(tarde_inicio, tarde_fim);
+    tempo_total += this.#calcula_intervalo(tarde_inicio, tarde_fim);
 
-    return total_tempo;
+    return tempo_total;
   }
+
 
   /**
    * 
@@ -79,25 +79,4 @@ export default class Estagiario {
 
     return tempo_total; // Em minutos numérico
   }
-
-  /**
-   * Verifica se o segundo horário passado é maior que o primeiro horário passado.
-   * @param {string} horario1 Primeiro horário no formato 12:00.
-   * @param {*} horario2 Segundo horário no formato 12:00.
-   * @returns {boolean} True, se o horario2 é maior que o horario1, senão false.
-   */
-  #verifica_horario(horario1, horario2) {
-    let hora1 = horario1.split(":").map(Number);
-    let hora2 = horario2.split(":").map(Number);
-
-    hora1 = hora1[0] * 60 + hora1[1];
-    hora2 = hora2[0] * 60 + hora2[1];
-
-    if (hora2 > hora1 || hora2 === hora1) {
-      return true;
-    }
-
-    return false;
-  }
-
 }
