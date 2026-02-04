@@ -13,50 +13,55 @@
 
     <form action="">
         <table>
-            <tr>
-                <td>Períodos</td>
-                <td>Manhã Início</td>
-                <td>Manhã Fim</td>
-                <td>Tarde Início</td>
-                <td>Tarde Fim</td>
-            </tr>
-            <tr>
-                <td>Segunda-feira</td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-            </tr>
-            <tr>
-                <td>Terça-feira</td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-            </tr>
-            <tr>
-                <td>Quarta-feira</td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-            </tr>
-            <tr>
-                <td>Quinta-feira</td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-            </tr>
-            <tr>
-                <td>Sexta-feira</td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-                <td><input type="time"></td>
-            </tr>
+            <tbody id="container">
+                <tr>
+                    <td>Períodos</td>
+                    <td>Manhã Início</td>
+                    <td>Manhã Fim</td>
+                    <td>Tarde Início</td>
+                    <td>Tarde Fim</td>
+                </tr>
+                <tr>
+                    <td>Segunda-feira</td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                </tr>
+                <tr>
+                    <td>Terça-feira</td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                </tr>
+                <tr>
+                    <td>Quarta-feira</td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                </tr>
+                <tr>
+                    <td>Quinta-feira</td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                </tr>
+                <tr>
+                    <td>Sexta-feira</td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                    <td><input type="time" value="00:00"></td>
+                </tr>
+            </tbody>
         </table>
     </form>
+
+    <button id="btn_calcular">Calcular</button>
+    <span id="resultado"></span>
 
     <script type="module" src="js/main.js"></script>
 </body>

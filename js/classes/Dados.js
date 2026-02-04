@@ -16,19 +16,3 @@ export const HORARIOS = Object.freeze([
     FIM: "13:00"
   }
 ]);
-
-export const DIAS = Object.freeze([
-  "Períodos",
-  "Segunda-feira",
-  "Terça-feira",
-  "Quarta-feira",
-  "Quinta-feira",
-  "Sexta-feira"
-]);
-
-export const PERIODOS = Object.freeze([
-  "Manhã Início",
-  "Manhã Fim",
-  "Tarde Início",
-  "Tarde Fim"
-]);
