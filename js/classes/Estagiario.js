@@ -2,14 +2,6 @@ import { HORARIOS } from "./Dados.js";
 
 export default class Estagiario {
   /**
-   * @type {string}
-   */
-  #nome;
-  /**
-   * @type {string} 
-   */
-  #materia;
-  /**
    * @type {string[][]}
    */
   #horario;
@@ -19,14 +11,9 @@ export default class Estagiario {
   #total_horas = 0;
   
   /**
-   * 
-   * @param {string} nome Nome do estagiário.
-   * @param {string} materia Nome da matéria em que ele atua.
    * @param {string[][]} horario Lista com os quatro horários de entrada e saída dos estagiários.
    */
-  constructor(nome, materia, horario) {
-    this.#nome = nome;
-    this.#materia = materia;
+  constructor(horario) {
     this.#horario = horario;
 
     this.#horario.map(item => this.#calcula_total_horas(item));
